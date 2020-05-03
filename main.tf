@@ -10,7 +10,6 @@ data "template_file" "script" {
   }
 }
 
-
 variable "project" {
   default = "fiap-lab"
 }
@@ -38,8 +37,6 @@ resource "random_shuffle" "random_subnet" {
   input        = [for s in data.aws_subnet.public : s.id]
   result_count = 1
 }
-
-
 
 resource "aws_elb" "web" {
   name = "hackton-elb"
